@@ -1,10 +1,10 @@
 <?php
-
+require_once "CustomCANFrameParser.php";
 // construct library
 $canBusDecoder =  new CustomCANFrameParser ();
 
 //dbc file in converted json type
-$canBusDecoder>setDBCFile( "DBCFileInJsonFormat.json" );
+$canBusDecoder->setDBCFile( "DBCFileInJsonFormat.json" );
 
 //can id 
 $canBusDecoder->setCANID("12CD10");
