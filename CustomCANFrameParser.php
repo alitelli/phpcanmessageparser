@@ -75,7 +75,8 @@ class CustomCANFrameParser
     public function formatCANFrame($Message)
     {
         $msg_bytes = explode("-", $Message);
-        array_pop($msg_bytes);
+        $exp_element_c = is_countable($msg_bytes) ? count($msg_bytes) : 8 ;
+        if( $exp_element_c == 9) array_pop($msg_bytes);
         foreach ($msg_bytes as $c_msg_bytes) {
             $msg_bytes_e[] = strtoupper(
                 str_pad($c_msg_bytes, 2, "0", STR_PAD_LEFT)
